@@ -1,36 +1,77 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Realtime AI Voice Assistant with Next.js
 
-## Getting Started
+This project is a demo implementation of a realtime AI voice assistant built with Next.js, TailwindCSS, and OpenAI’s cutting-edge realtime API. The goal is to enable hands-free, efficient interaction by letting you speak your prompts and receive real-time transcriptions and responses from the AI.
 
-First, run the development server:
+---
+
+## Table of Contents
+
+- [Features](#features)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Project Structure](#project-structure)
+- [Additional Resources](#additional-resources)
+
+---
+
+## Features
+
+- **Realtime Voice Connection:** Establish a secure WebRTC connection to stream audio from your microphone and receive audio responses from the AI assistant.
+- **Live Transcription:** Dynamically update the conversation transcript with both your spoken input and the AI’s responses.
+- **Session Management:** Uses an ephemeral token retrieved from OpenAI to secure API calls.
+
+---
+
+## Installation
+
+1. **Clone the repository:**
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+   git clone https://github.com/yourusername/realtime-ai-voice-assistant.git
+   cd realtime-ai-voice-assistant
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. **Install dependencies:**
+   
+```bash
+  npm install
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+3. **Create a .env file in the root directory and add your OpenAI API key:**
+```bash
+  OPENAI_API_KEY=sk-yoursupersecretkey
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Usage
+1. **Run the development server:**
+```bash
+  npm install
+```
 
-## Learn More
+2. **Open your browser and navigate to:**
+```bash
+  http://localhost:3000/realtime
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Project Structure
+```bash
+realtime-ai-voice-assistant/
+├── app/
+│   ├── api/
+│   │   └── openai/
+│   │       └── token/
+│   │           └── route.ts       # API route to fetch an ephemeral token from OpenAI
+│   ├── realtime/
+│   │   ├── components/
+│   │   │   └── VoiceAssistant.tsx # Core component handling voice connection and transcription
+│   │   └── page.tsx               # Page rendering the VoiceAssistant component
+├── services/
+│   └── openai/
+│       └── token.ts               # Helper function to retrieve the ephemeral token
+├── .env                         # Environment variables (not committed)
+├── package.json
+└── README.md
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Additional Resources
+For more advanced usage and to explore the full potential of the OpenAI Realtime API, please check out the OpenAI documentation (https://platform.openai.com/docs/guides/realtime-model-capabilities). The docs provide detailed information on how to set specific instructions, send out-of-context messages, combine written prompts with voice commands, and much more.
